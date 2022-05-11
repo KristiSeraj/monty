@@ -10,6 +10,10 @@ void (*get_op(char *token, __attribute__((unused)) unsigned int line))(stack_t *
 		{"pall", _pall},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
+		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{"nop", _nop},
 		{NULL, NULL}
 	};

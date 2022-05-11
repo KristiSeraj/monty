@@ -48,13 +48,13 @@ void _pall(stack_t **top, __attribute__((unused)) unsigned int line)
  * @top: pointer
  * @line: line
  */
-void _pint(stack_t **top, __attribute__((unused)) unsigned int line)
+void _pint(stack_t **top, unsigned int line)
 {
 	if (*top != NULL)
 		printf("%d\n", (*top)->n);
 	else
 	{
-		printf("L<line_number>: can't pint, stack empty\n");
+		printf("L%d: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -63,13 +63,13 @@ void _pint(stack_t **top, __attribute__((unused)) unsigned int line)
  * @top: pointer
  * @line: line
  */
-void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
+void _pop(stack_t **top, unsigned int line)
 {
 	stack_t *tmp = *top;
 
 	if (*top == NULL)
 	{
-		printf("L<line_number>: can't pop an empty stack\n");
+		printf("L%d: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
 	tmp = tmp->next;

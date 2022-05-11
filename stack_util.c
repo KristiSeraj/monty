@@ -4,19 +4,24 @@
  * @top: pointer
  * @line: line
  */
-void _swap(stack_t **top, __attribute__((unused)) unsigned int line)
+void _swap(stack_t **top, unsigned int line)
 {
 	int tmp_num;
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
-		printf("L<line_number>: can't swap, stack too short\n");
+		printf("L%d: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	tmp_num = (*top)->n;
-	(*top)->n = (*top)->next->n;	
+	(*top)->n = (*top)->next->n;
 	(*top)->next->n = tmp_num;
 }
+/**
+ * _nop - funcction that does nothing
+ * @top: pointer
+ * @line: line
+ */
 void _nop(stack_t **top, unsigned int line)
 {
 	(void) top;
