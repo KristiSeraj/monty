@@ -1,49 +1,52 @@
 #include "monty.h"
-int val;
+int num;
 int main(int argc, char **argv)
 {
+	void (*p_func)(stack_t **, unsigned int);
 	ssize_t line;
 	FILE *fp;
-	char *buff = NULL, *token = NULL;
+	char *buff = NULL, *token = NULL, command[1024];
 	size_t length = 0;
 	unsigned int line_counter = 1;
 	stack_t *top = NULL;
 
 	if (argc != 2)
-		printf("error");
+	{
+		printf("USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	fp = fopen(argv[1], "r");
 	if (fp == NULL)
-		printf("error");
-	
-	while ( (line = getline(&buff, &length, fp)) != -1)
+	{
+		printf("Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+
+	while ((line = getline(&buff, &length, fp)) != -1)
 	{
 		token = strtok(buff, "\n\t\r ");
-		printf("Token = %s\n", token);
-		
+
 		if (*token == '\0')
 			continue;
+		strcpy(command, token);
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
-			printf("Token 2: %s\n", token);
-			val = atoi(token);
-			printf("Val %d\n", val);
-			_push(&top, line_counter);
+			num = atoi(token);
+			p_func = get_op(command, line_counter);
+			p_func(&top, line_counter);
 		}
-		if (strcmp(token, "pall") == 0)
+		else
 		{
-			printf("Pall success\n");
-			_pall(&top, line_counter);
-			printf("succes\n");
+			p_func = get_op(token, line_counter);
+			p_func(&top, line_counter);
 		}
 		line_counter++;
 	}
 	fclose(fp);
-	
+
 	if (buff != NULL)
 		free(buff);
 	_free(top);
-	return (1);
+	return (0);
 }
-		
-

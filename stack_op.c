@@ -1,8 +1,16 @@
 #include "monty.h"
+/* global variable */
 int num;
-void _push(stack_t **top, __attribute__((unused))unsigned int line)
+/**
+ * _push - function that inserts new node in the beginning of the
+ * doubly linked list
+ * @top: pointer
+ * @line: line
+ */
+void _push(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *new_Node = malloc(sizeof(stack_t));
+
 	if (new_Node == NULL)
 		printf("Error\n");
 	new_Node->n = num;
@@ -19,32 +27,70 @@ void _push(stack_t **top, __attribute__((unused))unsigned int line)
 		(*top)->prev = new_Node;
 		*top = new_Node;
 	}
-	printf("val of stack %d\n", (*top)->n);
 }
+/**
+ * _pall - function that prints all elements in a doubly linked list
+ * @top: pointer
+ * @line: line
+ */
 void _pall(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *tmp = *top;
 
 	while (tmp != NULL)
 	{
-		printf("Num: %d\n", tmp->n);
+		printf("%d\n", tmp->n);
 		tmp = tmp->next;
 	}
 }
+/**
+ * _pint - function that prints the value of the top element
+ * @top: pointer
+ * @line: line
+ */
 void _pint(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	if (*top != NULL)
 		printf("%d\n", (*top)->n);
 	else
-		printf("Error\n");
+	{
+		printf("L<line_number>: can't pint, stack empty\n");
+		exit(EXIT_FAILURE);
+	}
 }
+/**
+ * _pop - function that deletes the top element
+ * @top: pointer
+ * @line: line
+ */
 void _pop(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	stack_t *tmp = *top;
 
 	if (*top == NULL)
-		printf("Error\n");
+	{
+		printf("L<line_number>: can't pop an empty stack\n");
+		exit(EXIT_FAILURE);
+	}
 	tmp = tmp->next;
 	free(*top);
 	*top = tmp;
+}
+/**
+ * _free - function that frees elements of stack
+ * @top: pointer
+ */
+void _free(stack_t *top)
+{
+	stack_t *tmp;
+
+	if (top == NULL)
+		return;
+	while (top != NULL)
+	{
+		tmp = top;
+		top = top->next;
+		free(tmp);
+	}
+	free(top);
 }
