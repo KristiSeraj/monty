@@ -36,7 +36,10 @@ void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 	stack_t *tmp;
 
 	if (*top == NULL)
+	{
 		putchar('\n');
+		return;
+	}
 	tmp = *top;
 	while (tmp != NULL)
 	{
