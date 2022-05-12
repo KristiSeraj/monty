@@ -37,15 +37,14 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-/*
- * function prototypes
- */
+
+/* basic operations functions */
 void _push(stack_t **top, unsigned int line);
 void _pall(stack_t **top, unsigned int line);
 void _pint(stack_t **top, unsigned int line);
 void _pop(stack_t **top, unsigned int line);
 void _free(stack_t *top);
-
+/* math operations functions */
 void _swap(stack_t **top, unsigned int line);
 void _add(stack_t **top, unsigned int line);
 void _sub(stack_t **top, unsigned int line);
@@ -56,9 +55,10 @@ void _mod(stack_t **top, unsigned int line);
 void _rotl(stack_t **top, unsigned int line);
 void _rotr(stack_t **top, unsigned int line);
 void _nop(stack_t **top, unsigned int line);
-
+/* char and string functions */
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
+
 void (*get_op(char *token, unsigned int line))(stack_t **, unsigned int);
 void open_file(char **argv);
 
