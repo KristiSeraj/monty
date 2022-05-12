@@ -10,7 +10,7 @@ void _swap(stack_t **top, unsigned int line)
 
 	if (*top == NULL || (*top)->next == NULL)
 	{
-		printf("L%d: can't swap, stack too short\n", line);
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line);
 		exit(EXIT_FAILURE);
 	}
 	tmp_num = (*top)->n;
