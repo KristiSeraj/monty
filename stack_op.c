@@ -12,7 +12,10 @@ void _push(stack_t **top, __attribute__((unused)) unsigned int line)
 	stack_t *new_Node = malloc(sizeof(stack_t));
 
 	if (new_Node == NULL)
-		printf("Error\n");
+	{
+		fprintf(stderr, "Error: malloc failed\n");
+		exit(EXIT_FAILURE);
+	}
 	new_Node->n = num;
 	new_Node->prev = NULL;
 
@@ -54,7 +57,7 @@ void _pint(stack_t **top, unsigned int line)
 		printf("%d\n", (*top)->n);
 	else
 	{
-		fprintf(stderr, "L%d: can't pint, stack empty\n", line);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
 }
@@ -69,7 +72,7 @@ void _pop(stack_t **top, unsigned int line)
 
 	if (*top == NULL)
 	{
-		fprintf(stderr, "L%d: can't pop an empty stack\n", line);
+		fprintf(stderr, "L%u: can't pop an empty stack\n", line);
 		exit(EXIT_FAILURE);
 	}
 	tmp = tmp->next;

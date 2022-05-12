@@ -22,5 +22,6 @@ void (*get_op(char *token, __attribute__((unused)) unsigned int line))(stack_t *
 		if (strcmp(token, op[j].opcode) == 0)
 			return (op[j].f);
 	}
+	invalid_instruction(token, line);
 	return (NULL);
 }

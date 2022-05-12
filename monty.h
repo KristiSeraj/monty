@@ -60,4 +60,10 @@ void _nop(stack_t **top, unsigned int line);
 void _pchar(stack_t **top, unsigned int line);
 void _pstr(stack_t **top, unsigned int line);
 void (*get_op(char *token, unsigned int line))(stack_t **, unsigned int);
+void open_file(char **argv);
+
+/* error functions */
+void usage_error(void);
+void file_error(char **argv);
+void invalid_instruction(char *token, unsigned int line);
 #endif
