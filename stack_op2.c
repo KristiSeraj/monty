@@ -37,7 +37,7 @@ void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 
 	if (*top == NULL)
 		putchar('\n');
-	tmp = *top
+	tmp = *top;
 	while (tmp != NULL)
 	{
 		s = tmp->n;
