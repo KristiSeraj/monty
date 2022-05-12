@@ -22,6 +22,7 @@ void (*get_op(char *token, unsigned int line))(stack_t **, unsigned int)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 	for (j = 0; op[j].opcode != NULL; j++)

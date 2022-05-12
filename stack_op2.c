@@ -52,7 +52,7 @@ void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 	putchar('\n');
 }
 /**
- * _rotl - function that rotates the stack of the top
+ * _rotl - function that rotates the stack to the top
  * @top: pointer
  * @line: line
  */
@@ -74,4 +74,23 @@ void _rotl(stack_t **top, __attribute__((unused)) unsigned int line)
 	new_top->prev = NULL;
 	*top = new_top;
 }
+/**
+ * _rotr - function that rotates the stack to the bottom
+ * @top: pointer
+ * @line: line
+ */
+void _rotr(stack_t **top, __attribute__((unused)) unsigned int line)
+{
+	stack_t *tmp;
 
+	if (*top == NULL || (*top != NULL && (*top)->next == NULL))
+		return;
+	tmp = *top;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->prev->next = NULL;
+	tmp->prev = NULL;
+	tmp->next = *top;
+	(*top)->prev = tmp;
+	*top = tmp;
+}
