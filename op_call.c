@@ -20,6 +20,7 @@ void (*get_op(char *token, unsigned int line))(stack_t **, unsigned int)
 		{"mod", _mod},
 		{"nop", _nop},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 	for (j = 0; op[j].opcode != NULL; j++)

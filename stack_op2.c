@@ -25,3 +25,24 @@ void _pchar(stack_t **top, unsigned int line)
 	putchar(c);
 	putchar('\n');
 }
+/**
+ * _pstr - function that prints the string starting at the top of the stack
+ * @top: pointer
+ * @line: line
+ */
+void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
+{
+	int s;
+
+	if (*top == NULL)
+		putchar('\n');
+	while (*top != NULL)
+	{
+		s = (*top)->n;
+		if (s <= 0 || s > 127)
+			break;
+		putchar(s);
+		*top = (*top)->next;
+	}
+	putchar('\n');
+}
