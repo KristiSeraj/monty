@@ -66,4 +66,5 @@ void open_file(char **argv);
 void usage_error(void);
 void file_error(char **argv);
 void invalid_instruction(char *token, unsigned int line);
+int is_comment(char *token, unsigned int line);
 #endif

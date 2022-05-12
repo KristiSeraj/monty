@@ -24,6 +24,8 @@ void open_file(char **argv)
 		if (*token == '\0')
 			continue;
 		strcpy(command, token);
+		if (is_comment(token, line_counter) == 1)
+			continue;
 		if (strcmp(token, "push") == 0)
 		{
 			token = strtok(NULL, "\n\t\r ");
@@ -43,4 +45,13 @@ void open_file(char **argv)
 	if (buff != NULL)
 		free(buff);
 	_free(top);
+}
+int is_comment(char *token, unsigned int line)
+{
+	if (token[0] == '#')
+	{
+		line++;
+		return (1);
+	}
+	return (-1);
 }
