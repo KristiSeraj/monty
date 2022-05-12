@@ -16,7 +16,7 @@ void _pchar(stack_t **top, unsigned int line)
 	}
 	if (c < 0 || c > 127)
 	{
-		fprintf(stderr, "L%u: can't pchar, stack empty\n", line);
+		fprintf(stderr, "L%u: can't pchar, value out of range", line);
 		exit(EXIT_FAILURE);
 	}
 	putchar(c);
