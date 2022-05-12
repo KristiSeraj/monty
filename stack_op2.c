@@ -7,18 +7,21 @@
  */
 void _pchar(stack_t **top, unsigned int line)
 {
-	int c = (*top)->n;
+	int c;
 
 	if (*top == NULL)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n", line);
 		exit(EXIT_FAILURE);
 	}
+
+	c = (*top)->n;
 	if (c < 0 || c > 127)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range", line);
 		exit(EXIT_FAILURE);
 	}
+
 	putchar(c);
 	putchar('\n');
 }

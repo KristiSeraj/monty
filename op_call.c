@@ -1,6 +1,10 @@
 #include "monty.h"
-
-void (*get_op(char *token, __attribute__((unused)) unsigned int line))(stack_t **, unsigned int)
+/**
+ * get_op - function pointer that takes argument of function in struct
+ * @token: token
+ * @line: line
+ */
+void (*get_op(char *token, unsigned int line))(stack_t **, unsigned int)
 {
 	int j;
 	instruction_t op[] = {
