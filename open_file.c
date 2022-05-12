@@ -1,5 +1,9 @@
 #include "monty.h"
 int num;
+/**
+ * open_file - function that opens the file
+ * @argv: argument value
+ */
 void open_file(char **argv)
 {
 	void (*p_func)(stack_t **, unsigned int);
