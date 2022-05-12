@@ -33,16 +33,18 @@ void _pchar(stack_t **top, unsigned int line)
 void _pstr(stack_t **top, __attribute__((unused)) unsigned int line)
 {
 	int s;
+	stack_t *tmp;
 
 	if (*top == NULL)
 		putchar('\n');
-	while (*top != NULL)
+	tmp = *top
+	while (tmp != NULL)
 	{
-		s = (*top)->n;
+		s = tmp->n;
 		if (s <= 0 || s > 127)
 			break;
 		putchar(s);
-		*top = (*top)->next;
+		tmp = tmp->next;
 	}
 	putchar('\n');
 }
