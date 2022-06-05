@@ -44,33 +44,48 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
 **Monty opcode**
 
 - `push`
-  - pushes an element to the stack
+  - Pushes an element to the stack
 - `pall`
-  - prints all the values on the stack, starting from the top of the stack
+  - Prints all the values on the stack, starting from the top of the stack
 - `pint`
-  - prints the value at the top of the stack, followed by a new line
+  - Prints the value at the top of the stack, followed by a new line
 - `pop`
-  - removes the top element of the stack
+  - Removes the top element of the stack
 - `swap`
-  - swaps the top two elements of the stack
+  - Swaps the top two elements of the stack
 - `add`
-  - adds the top two elements of the stack, the top element of the stack contains the result
+  - Adds the top two elements of the stack
+  - The top element of the stack contains the result
 - `nop`
-  - doesn't do anything
+  - Doesn't do anything
 - `sub`
-  - substracts the top element of the stack from the second top element of the stack, the top element of the stack contains the result
+  - Substracts the top element of the stack from the second top element of the stack
+  - The top element of the stack contains the result
 - `div`
-   - divides the second element of the stack by the top element of the stack, the top element of the stack contains the result
+   - Divides the second element of the stack by the top element of the stack
+   - The top element of the stack contains the result
+  - Prints error if the top element of the stack is `0`
 - `mul`
-   - multiplies the second top element of the stack with the top element of the stack, the top element of the stack contains the result
+   - Multiplies the second top element of the stack with the top element of the stack
+   - The top element of the stack contains the result
 - `mod`
-  - computes the rest of the division of the second top element of the stack by the top element of the stack, the top element of the stack contains the result
+  - Computes the rest of the division of the second top element of the stack by the top element of the stack
+  - The top element of the stack contains the result
+  - Prints error if the top element of the stack is `0`
 - `pchar`
-   - prints the char at the top of the stack, followed by a new line
+   - Prints the char at the top of the stack, followed by a new line
+   - The integer stored at the top of the stack is treated as the ascii value of the character to be printed
 - `pstr`
-  - prints the string at the top of the stack, followed by a new line
+  - Prints the string at the top of the stack, followed by a new line
+  - The integer stored in each element of the stack is treated as the ascii value of the character to be printed
+  - The string stops when either:
+    - the stack is over
+    - the value of the element is 0
+    - the value of the element is not in the ascii table
 - `rotl`
-  - rotates the stack to the top, the top element of the stack becomes the last one, and the second top element of the stack becomes the first
+  - Rotates the stack to the top
+  - The top element of the stack becomes the last one, and the second top element of the stack becomes the first
 - `rotr`
-  - rotates the stack to the bottom, the last element of the stack becomes the top element of the stack
+  - Rotates the stack to the bottom
+  - The last element of the stack becomes the top element of the stack
 
