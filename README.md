@@ -68,3 +68,24 @@ root$ ./monty bytecodes/00.m
 2
 1
 ```
+
+**The pint opcode**
+
+The opcode pint prints the value at the top of the stack, followed by a new line.
+
+- Usage: `pint`
+- If the stack is empty, prints the error message `L<line_number>: can't pint, stack empty`, followed by a new line, and exit with the status `EXIT_FAILURE`
+
+```
+root$ cat bytecodes/06.m
+push 1
+pint
+push 2
+pint
+push 3
+pint
+root$ ./monty bytecodes/06.m
+1
+2
+3
+```
