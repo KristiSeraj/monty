@@ -40,3 +40,31 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
 - [stack_op2.c](https://github.com/KristiSeraj/monty/blob/main/stack_op2.c) - C file that executes char operation functions
 
 - [stack_util.c](https://github.com/KristiSeraj/monty/blob/main/stack_util.c) - C file that executes swap and nop function operations
+
+**The push opcode**
+
+The opcode push pushes an element to the stack.
+
+- Usage: `push <int>`
+  - where `<int>` is an integer
+- If `<int>` is not an integer or if there is no argument given to `push`, prints the error message `L<line_number>: usage: push integer`, followed by a new line, and exit with the status `EXIT_FAILURE`
+   - where is the line number in the file
+
+**The pall opcode**
+
+The opcode pall prints all the values on the stack, starting from the top of the stack.
+
+- Usage `pall`
+- If the stack is empty, don’t print anything
+
+```
+root$ cat bytecodes/00.m
+push 1
+push 2
+push 3
+pall
+root$ ./monty bytecodes/00.m
+3
+2
+1
+```
