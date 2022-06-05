@@ -29,17 +29,17 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
 
 - [monty.h](https://github.com/KristiSeraj/monty/blob/main/monty.h) - Header file that contains all structures and function prototypes
 
-- [op_call.c](https://github.com/KristiSeraj/monty/blob/main/op_call.c) - C file that calls all operations
+- [op_call.c](https://github.com/KristiSeraj/monty/blob/main/op_call.c) - C file that calls all opcodes
 
 - [open_file.c](https://github.com/KristiSeraj/monty/blob/main/open_file.c) - C file that opens monty files
 
-- [stack_math_op.c](https://github.com/KristiSeraj/monty/blob/main/stack_math_op.c) -  C file that executes functions for math operations
+- [stack_math_op.c](https://github.com/KristiSeraj/monty/blob/main/stack_math_op.c) -  C file that executes math opcodes
 
-- [stack_op.c](https://github.com/KristiSeraj/monty/blob/main/stack_op.c) - C file that executes basic operation functions
+- [stack_op.c](https://github.com/KristiSeraj/monty/blob/main/stack_op.c) - C file that executes basic opcodes
 
-- [stack_op2.c](https://github.com/KristiSeraj/monty/blob/main/stack_op2.c) - C file that executes char operation functions
+- [stack_op2.c](https://github.com/KristiSeraj/monty/blob/main/stack_op2.c) - C file that executes char opcodes
 
-- [stack_util.c](https://github.com/KristiSeraj/monty/blob/main/stack_util.c) - C file that executes swap and nop function operations
+- [stack_util.c](https://github.com/KristiSeraj/monty/blob/main/stack_util.c) - C file that executes swap and nop opcode
 
 **The push opcode**
 
