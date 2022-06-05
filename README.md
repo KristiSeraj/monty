@@ -41,51 +41,36 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
 
 - [stack_util.c](https://github.com/KristiSeraj/monty/blob/main/stack_util.c) - C file that executes swap and nop opcode
 
-**The push opcode**
+**Monty opcode**
 
-The opcode push pushes an element to the stack.
+- `push`
+  - pushes an element to the stack
+- `pall`
+  - prints all the values on the stack, starting from the top of the stack
+- `pint`
+  - prints the value at the top of the stack, followed by a new line
+- `pop`
+  - removes the top element of the stack
+- `swap`
+  - swaps the top two elements of the stack
+- `add`
+  - adds the top two elements of the stack, the top element of the stack contains the result
+- `nop`
+  - doesn't do anything
+- `sub`
+  - substracts the top element of the stack from the second top element of the stack, the top element of the stack contains the result
+- `div`
+   - divides the second element of the stack by the top element of the stack, the top element of the stack contains the result
+- `mul`
+   - multiplies the second top element of the stack with the top element of the stack, the top element of the stack contains the result
+- `mod`
+  - computes the rest of the division of the second top element of the stack by the top element of the stack, the top element of the stack contains the result
+- `pchar`
+   - prints the char at the top of the stack, followed by a new line
+- `pstr`
+  - prints the string at the top of the stack, followed by a new line
+- `rotl`
+  - rotates the stack to the top, the top element of the stack becomes the last one, and the second top element of the stack becomes the first
+- `rotr`
+  - rotates the stack to the bottom, the last element of the stack becomes the top element of the stack
 
-- Usage: `push <int>`
-  - where `<int>` is an integer
-- If `<int>` is not an integer or if there is no argument given to `push`, prints the error message `L<line_number>: usage: push integer`, followed by a new line, and exit with the status `EXIT_FAILURE`
-   - where is the line number in the file
-
-**The pall opcode**
-
-The opcode pall prints all the values on the stack, starting from the top of the stack.
-
-- Usage `pall`
-- If the stack is empty, don’t print anything
-
-```
-root$ cat bytecodes/00.m
-push 1
-push 2
-push 3
-pall
-root$ ./monty bytecodes/00.m
-3
-2
-1
-```
-
-**The pint opcode**
-
-The opcode pint prints the value at the top of the stack, followed by a new line.
-
-- Usage: `pint`
-- If the stack is empty, prints the error message `L<line_number>: can't pint, stack empty`, followed by a new line, and exit with the status `EXIT_FAILURE`
-
-```
-root$ cat bytecodes/06.m
-push 1
-pint
-push 2
-pint
-push 3
-pint
-root$ ./monty bytecodes/06.m
-1
-2
-3
-```
