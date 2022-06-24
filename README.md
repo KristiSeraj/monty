@@ -17,7 +17,7 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
   - it finds an error in the file
   - an error occured
 
-**File description**
+## File description
 
 - [bytecodes](https://github.com/KristiSeraj/monty/tree/main/bytecodes) - Contains monty files (`.m`) 
 
@@ -41,7 +41,7 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
 
 - [stack_util.c](https://github.com/KristiSeraj/monty/blob/main/stack_util.c) - C file that executes swap and nop opcode
 
-**Monty opcode**
+### Monty opcode
 
 - `push`
   - Pushes an element to the stack
@@ -89,3 +89,18 @@ Monty 0.98 is a scriptig language that is first compiled into Monty byte codes. 
   - Rotates the stack to the bottom
   - The last element of the stack becomes the top element of the stack
 
+### Example
+```
+root$ cat bytecodes/00.m
+push 1
+push 2
+push 3
+pall
+root$ ./monty bytecodes/00.m
+3
+2
+1
+```
+
+### Author
+[Kristjan Seraj](https://www.linkedin.com/in/kristjan-seraj/)
